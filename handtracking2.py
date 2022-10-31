@@ -8,12 +8,11 @@ hands =mpHands.Hands()#the default values are okay()
 
 while True:
   ret,frame = vid.read()
-
   if ret ==True:
     frame =cv.resize(frame, (500,500))
     frameBGR = cv.cvtColor(frame,cv.COLOR_RGB2BGR)
     results = hands.process(frameBGR)
-    
+
     #to check for any hands
     if results.multi_hand_landmarks:
       for result in results.multi_hand_landmarks:
@@ -29,9 +28,6 @@ while True:
   else:
     print("Somethings  wrong ur with camera")
     break
-
-
-
 
 vid.release()
 cv.destroyAllWindows()
